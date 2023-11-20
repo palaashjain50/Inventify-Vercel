@@ -81,7 +81,7 @@ submit.addEventListener('click', (e) => {
 
 async function login(email, password, roleType) {
     try {
-        const response = await fetch('http://localhost:5500/login/', {
+        const response = await fetch('https://inventify-render.onrender.com/login', {
             method: "POST",
             body: JSON.stringify(
                 {
