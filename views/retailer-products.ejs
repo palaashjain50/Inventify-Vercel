@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/retailer/dashboard.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .PRODUCT {
+            /* height: 100vh; */
+            width: calc(100vw - 280px);
+            margin-left: 280px;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 50px;
+            background: rgb(2,0,36);
+            background: linear-gradient(0deg, rgba(2,0,36,1) 19%, rgba(7,30,65,1) 33%, rgba(133,182,254,1) 100%);
+        }
+        .search_box {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        }
+
+        .product-card {
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+
+        .img-box {
+            position: relative;
+        }
+
+        .product-card:hover #img-shadow {
+            bottom: -50px;
+        }
+
+        #img-shadow {
+            position: absolute;
+            bottom: -200px;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent, rgba(197, 197, 197, 0.515));
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar_container">
+            <div class="logo_container">
+                Inventify
+            </div>
+            <div class="navigations">
+                <div class="nav_item" >
+                    <div class="nav_icon">
+                        <img src="../images/grid.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/retailer-dashboard/<%= username %>" class="nav_title">Dashboard</a>
+                    </div>
+                </div>
+                <div class="nav_item" >
+                    <div class="nav_icon">
+                        <img src="../images/profile.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/retailer-profile/<%= username %>" class="nav_title">Profile</a>
+                    </div>
+                </div>
+                <div class="nav_item" id="mainLink">
+                    <div class="nav_icon" >
+                        <img src="../images/unboxing.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/retailer-products/<%= username %>" class="nav_title">Products</a>
+                    </div>
+                </div>
+                
+                <div class="nav_item" >
+                    <div class="nav_icon">
+                        <img src="../images/invoice.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/retailer-cart/<%= username %>" id="cartLink"  class="nav_title">Cart</a>
+                    </div>
+                </div>
+
+                <div class="nav_item" >
+                    <div class="nav_icon">
+                        <img src="../images/profile.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/retailer-orders/<%= username %>" class="nav_title">Orders</a>
+                    </div>
+                </div>
+
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/invoice.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Invoices</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/email.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Messages</a>
+                    </div>
+                </div>
+            </div>
+            <div class="logout_button">
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/settings.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#">Settings</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/log-out.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="logout_btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Page -->
+        <div class="PRODUCT">
+            <div class="text-[22px] h-[50px] w-[650px] border border-[#071E41] bg-[#071E41] flex px-5 py-2 gap-5 rounded-full search_box">
+                <img src="../images/magnifying-glass.png" alt="" width="30px" height="25px">
+                <input type="text" placeholder="Enter medicine name" class="w-[100%] bg-[#071E41] outline-none text-white">
+            </div>
+            <div class="mt-[90px] flex justify-evenly w-[100%] items-center flex-wrap gap-[100px]">
+                
+                <% for(let i = 0; i < 10; i++) { %>
+                   
+                    <div class="product-card w-[300px] h-[400px] rounded-t-[25px] rounded-b-[10px] bg-[#071E41] text-white hover:scale-[1.05] transition-all duration-300">
+                        <!-- product-img -->
+                        <div class="w-[100%] h-[200px] overflow-hidden img-box">
+                            <img src="<%= products[i].image %>" alt="" class="rounded-t-[25px] object-content w-[100%] h-[100%]">
+                            <div id="img-shadow" class="">
+                                
+                            </div>
+                        </div>
+    
+                        <div class="flex flex-col justify-evenly h-[150px] px-5 mt-[10px] gap-[5px]">
+                            <!-- product-category -->
+                            <p class="text-[18px] tracking-wide opacity-50">
+                                <%= products[i].category %>
+                            </p>
+                            <!-- product-name -->
+                            <h2 class="text-[25px] tracking-widest">
+                                <%= products[i].name %>
+                            </h2>
+        
+                            <!-- unit price -->
+                            <p class="text-[20px] self-end">
+                                Rs. <%= products[i].unitprice %>
+                            </p>
+        
+                        </div>
+                         <!-- add to cart -->
+                         <button id="<%= products[i].id %>" class="addToCart text-[20px] self-center bg-[#85B6FE] w-full h-[40px] text-[#071E41] rounded-b-[10px] font-semibold hover:bg-[#e0f2fe] transition-all duration-0.5">
+                            Add To Cart 
+                        </button>
+    
+                    </div>
+
+                <% } %>
+
+                
+            </div>
+        </div>
+
+    </div>
+
+    <div class="logout_page">
+        <div class="logout_popup">
+            <h1>Log out</h1>
+            <div>Are you Sure ?</div>
+            <div class="logout_btns">
+                <button class="cancel">Cancel</button>
+                <button class="yes">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/retailer/dashboard.js"></script>
+    <script src="../javascript/retailer/product.js"></script>
+</body>
+</html>

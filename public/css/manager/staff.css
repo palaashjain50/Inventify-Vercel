@@ -1,0 +1,254 @@
+/* Lobster font */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@300&display=swap');
+
+/* All Jejugothic fonts are changed to Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@300&family=Roboto:wght@300&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Judson&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+/* global variables */
+:root {
+    --dark-blue: #071E41;
+    --light-blue: #7CA7FB;
+    --white: #fff;
+    --black: #000;
+    --green: #5DDD72;
+    --red: #F84242;
+    --light-grey: #D9D9D9;
+}
+
+/*For scroll bar*/
+::-webkit-scrollbar {
+    width: 4px;   
+}
+ 
+::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 4px;
+    height: 1%;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(1, 5, 13);
+}
+
+
+.STAFF {
+    margin-left: 280px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.STAFF > header {
+    padding: 15px;
+    width: calc(100vw - 280px);
+}
+
+.sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgb(202, 202, 202);
+}
+
+.STAFF > header > h1{
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.active_staff_container {
+    width: 100%;
+    background-color: var(--light-blue);
+    height: 100vh;
+    z-index: 0; 
+    width: 82.5vw; 
+    margin-top: 180px;
+}
+
+.heading {
+    position: fixed; 
+    z-index: 1; 
+    top: 140px;
+    padding: 15px;
+    width: 98%;
+    margin: 20px auto;
+    background-color: var(--dark-blue);
+    display: flex;
+    align-items: center;
+}
+
+.heading > p {
+    color: var(--white);
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.profile_header{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.staff_profile_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 35px;
+}
+
+.staff_details {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    height: 47px;
+    width: 100%;
+    background-color: var(--dark-blue);
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.staff_img, .staff_username,  .staff_email,  .staff_contact, .staff_last_login, .action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.staff_img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: white;
+    color: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mainLinkStaff {
+    background-color: var(--white);
+}
+
+#mainLinkStaff > div > a {
+    color: var(--dark-blue);
+    font-weight: 600;
+}
+
+
+.action {
+    display: flex;
+    gap: 5px;
+    margin-left: 20px; 
+    width: 200px;
+}
+
+.edit, .delete {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    width: 80px;
+    padding: 6px;
+    font-size: 1rem;
+}
+
+.edit {
+    color: var(--black);
+    background-color: var(--green);
+}
+
+.edit:hover{
+    background-color: green;
+    color: white;
+}
+
+.delete {
+    background-color: var(--red);
+    color: var(--white);
+}
+
+.delete:hover {
+    background-color: #cf1d1d;
+}
+
+.add_staff_btn {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    gap: 15px;
+} 
+
+.add_user {
+    cursor: pointer;
+    width: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    border-radius: 5px;
+    padding: 5px;
+    height: 40px;
+}
+
+.add_user > p {
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.add_user > p::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    background-color: var(--white);
+    bottom: 0px;
+    left: 0px;
+    transition: all 0.5s;
+}
+
+.add_user > p:hover::after {
+    width: 100%;
+}
+
+.search_user > form > div {
+    height: 40px;
+    background-color: #071E41;
+    width: 250px;
+    font-size: 1.2rem;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    border-radius: 5px;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search_user > form > div > input {
+    outline: none;
+    border: none;
+    width: 80%;
+    height: 40px;
+    color: var(--white);
+    background-color: var(--dark-blue);
+    font-size: 1.2rem;
+}
+
+input::placeholder {
+    font-size: 1.2rem;
+    color: var(--white);
+    font-family: 'Roboto', sans-serif;
+    opacity: 0.9;
+}
+
+

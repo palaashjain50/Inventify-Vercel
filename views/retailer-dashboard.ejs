@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/retailer/dashboard.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- <p class="">
+        <%= retailer_username %>
+        Welcome to Inventify | Order Products seamlessly!
+    </p> -->
+
+    <div class="wrapper">
+        
+        <div class="sidebar_container">
+            <div class="logo_container">
+                Inventify
+            </div>
+            <div class="navigations">
+                <div class="nav_item" id="mainLink">
+                    <div class="nav_icon">
+                        <img src="../images/grid.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/retailer-dashboard/<%= retailer_username %>" class="nav_title">Dashboard</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/profile.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/retailer-profile/<%= retailer_username %>" class="nav_title">Profile</a>
+                    </div>
+                </div>
+                <div class="nav_item" >
+                    <div class="nav_icon">
+                        <img src="../images/unboxing.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/retailer-products/<%= retailer_username %>" class="nav_title">Products</a>
+                    </div>
+                </div>
+                
+                <div class="nav_item" >
+                    <div class="nav_icon">
+                        <img src="../images/invoice.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/retailer-cart/<%= retailer_username %>" id="cartLink"  class="nav_title">Cart</a>
+                    </div>
+                </div>
+
+                <div class="nav_item" >
+                    <div class="nav_icon">
+                        <img src="../images/profile.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/retailer-orders/<%= retailer_username %>" class="nav_title">Orders</a>
+                    </div>
+                </div>
+
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/invoice.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Invoices</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/email.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Messages</a>
+                    </div>
+                </div>
+            </div>
+            <div class="logout_button">
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/settings.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#">Settings</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/log-out.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="logout_btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="DASHBOARD">
+            <header>
+                <h1 class="font-semibold">Dashboard</h1>
+                <div class="profile_container">
+                    <div class="profile_icon">
+                        <img src="https://api.dicebear.com/7.x/initials/svg?seed=<%= firstName %> <%= lastName %>" alt=""
+                        width="100%" height="100%" style="border-radius: 50%;"
+                        >
+                    </div>
+                    <div class="desc">
+                        <p class="name">
+                            <%= retailer_username %>
+                        </p>
+                        <p class="role">Retailer</p>
+                    </div>
+                </div> 
+            </header>
+            <div class="main_container">
+                <div class="active_users_container">
+                    <h1 class="font-semibold">Transaction History</h1>
+                    <div class="bar"></div>
+                    <div class="boxes">
+                        <div class="total_products_order">
+                            <p class="total_products">00</p>
+                            <p class="description">Products Order</p>
+                        </div>
+                        <div class="total_products_order">
+                            <p class="total_products">00</p>
+                            <p class="description">Cart</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="logout_page">
+        <div class="logout_popup">
+            <h1 class="text-[30px]">Log out</h1>
+            <div class="text-[18px]">Are you Sure ?</div>
+            <div class="logout_btns">
+                <button class="cancel">Cancel</button>
+                <button class="yes">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/retailer/dashboard.js"></script>
+</body>
+</html>
+
+

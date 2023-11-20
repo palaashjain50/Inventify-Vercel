@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/admin/dashboard.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar_container">
+            <div class="logo_container">
+                Inventify
+            </div>
+            <div class="navigations">
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/grid.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="./dashboard.html" class="nav_title">Dashboard</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/profile.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="./profile.html" class="nav_title">Profile</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/user.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="./user.html" class="nav_title">Users</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/email.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Messages</a>
+                    </div>
+                </div>
+            </div>
+            <div class="logout_button">
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/settings.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#">Settings</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/log-out.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="logout_btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="DASHBOARD">
+            <header>
+                <h1>Dashboard</h1>
+                <div class="profile_container">
+                    <div class="profile_icon">HJ</div>
+                    <div class="desc">
+                        <p class="name">
+                            Admin-1
+                        </p>
+                        <p class="role">Manager</p>
+                    </div>
+                </div> 
+            </header>
+            <div class="main_container">
+                <div class="active_users_container">
+                    <h1>Active Users</h1>
+                    <div class="bar"></div>
+                    <div class="boxes">
+                        <div class="add_">
+                            <p class="total_managers">00</p>
+                            <p class="role_type">Managers</p>
+                            <img src="../images/plus.png" alt="" width="35px" height="35px" class="add_products">
+                        </div>
+                        <div class="add_">
+                            <p class="total_staff">00</p>
+                            <p class="role_type">Staff Members</p>
+                            <img src="../images/plus.png" alt="" width="35px" height="35px" class="add_staff">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="logout_page">
+            <div class="logout_popup">
+                <h1>Log out</h1>
+                <div>Are you Sure ?</div>
+                <div class="logout_btns">
+                    <button class="cancel">Cancel</button>
+                    <button class="yes">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../javascript/admin/dashboard.js"></script>
+</body>
+</html>

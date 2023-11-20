@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/manager/dashboard.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .order-list {
+            min-height: calc(100vh - 300px);
+        }
+        .order-card {
+            margin-left: 10px;
+            width: calc(100vw - 310px);
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        
+        <div class="sidebar_container">
+            <div class="logo_container">
+                Inventify
+            </div>
+            <div class="navigations">
+                <div class="nav_item" >
+                    <div class="nav_icon">
+                        <img src="../images/grid.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/manager-dashboard/<%= manager_username %>" class="nav_title">Dashboard</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/profile.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/manager-profile/<%= manager_username %>" class="nav_title">Profile</a>
+                    </div>
+                </div>
+                <div class="nav_item" id="mainLink">
+                    <div class="nav_icon">
+                        <img src="../images/verify.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/manager-approval" class="nav_title">Approvals</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/unboxing.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/manager-products/<%= manager_username %>" class="nav_title">Products</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/user.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/get-staff-details/<%= manager_username %>" class="nav_title">Staff Members</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/marketplace.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Retailers</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/invoice.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Invoices</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/email.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Messages</a>
+                    </div>
+                </div>
+            </div>
+            <div class="logout_button">
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/settings.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#">Settings</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/log-out.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="logout_btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="DASHBOARD">
+            <header>
+                <h1 class="font-semibold">Approvals</h1>
+                <div class="profile_container">
+                    <div class="profile_icon">
+                        <img src="https://api.dicebear.com/7.x/initials/svg?seed=<%= firstName %> <%= lastName %>" alt=""
+                        width="100%" height="100%" style="border-radius: 50%;"
+                        >
+                    </div>
+                    <div class="desc">
+                        <p class="name">
+                            <%= manager_username %>
+                        </p>
+                        <p class="role">Manager</p>
+                    </div>
+                </div> 
+            </header>
+            <div class="main_container">
+                <div class="order-list flex flex-col gap-5 mt-[10px]">
+                    <% for(let i = 0; i < orderApproval.length; ++i) { %>
+                        <div class="order-card rounded-[15px]">
+                            <div class="w-full p-5">
+                                <div class="flex justify-between text-[20px]">
+                                    <h1>Transaction ID 
+                                        <span id="transactionID" class="ml-2 text-[18px] tracking-widest font-semibold">
+                                            <!-- 65546c5486041c6c70492333 -->
+                                            <%= orderApproval[i]._id %>
+                                        </span>
+                                    </h1>
+                                    <div class="text-[18px] flex gap-5 font-semibold">
+                                        <p id="orderStatus" class="font-semibold w-[150px] bg-[#e0f2fe] px-2 py-2 flex justify-center items-center rounded-[5px] tracking-wide text-center">
+                                            <%= orderApproval[i].status %>
+                                        </p>
+                                        <button id="approval-btn" class="flex gap-[3px] items-center bg-[#86efac] hover:bg-[#4ade80] rounded-[5px] px-2 py-2 transition-all duration-200">
+                                            <img src="../images/airplane.png" alt="" width="25px" height="25px">
+                                            Approve
+                                        </button>
+                                        <button id="discard-btn" class="flex gap-[3px] items-center bg-[#f87171] rounded-[5px] hover:bg-[#ef4444] px-2 py-2 transition-all duration-200">
+                                            <img src="../images/delete.png" alt="" width="25px" height="25px">
+                                            Discard
+                                        </button>  
+                                    </div>
+                                </div>
+                                <div class="mt-[8px] font-semibold text-[19px] flex flex-col gap-[5px]">
+                                    <% for(let j = 0; j < orderApproval[i].products.length; ++j) { %>
+                                        <p> 
+                                            <span class="text-[#9ca3af] font-bold">
+                                                <!-- 1 x -->
+                                                <%= orderApproval[i].products[j].qtyStrip %> <span> x </span>
+                                            </span> 
+                                            <!-- Paracetamol -->
+                                            <%= orderApproval[i].products[j].productName %>
+                                        </p>
+                                        <!-- <p> <span class="text-[#9ca3af] font-bold">5 x</span> Amoxicillin</p> -->
+                                    <% } %>
+                                </div>
+                                <div class="mt-[15px] font-normal text-[20px] flex justify-between">
+                                    <p>Ordered Date 
+                                        <span class="ml-2 text-[18px] tracking-widest font-semibold">
+                                            <!-- 2023-11-15 -->
+                                            <%= orderApproval[i].orderCreatedAt %>
+                                        </span>
+                                    </p>
+                                    <p class="font-bold tracking-wide">&#8377;
+                                        <!-- 345.64 -->
+                                        <%= orderApproval[i].totalAmount %>
+                                    </p>
+                                </div>
+                                <div class="mt-[15px] font-normal text-[20px]">
+                                    <p><span>Approval request by</span> <span class="font-semibold"><%= orderApproval[i].staff %></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="logout_page">
+        <div class="logout_popup">
+            <h1>Log out</h1>
+            <div>Are you Sure ?</div>
+            <div class="logout_btns">
+                <button class="cancel">Cancel</button>
+                <button class="yes">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/manager/dashboard.js"></script>
+</body>
+</html>

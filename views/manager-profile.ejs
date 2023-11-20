@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/manager/dashboard.css">
+    <link rel="stylesheet" href="../css/manager/profile.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar_container">
+            <div class="logo_container">
+                Inventify
+            </div>
+            <div class="navigations">
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/grid.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/manager-dashboard/<%= manager_username %>" class="nav_title">Dashboard</a>
+                    </div>
+                </div>
+                <div class="nav_item" id="mainLinkProfile">
+                    <div class="nav_icon">
+                        <img src="../images/profile.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/manager-profile/<%= manager_username %>" class="nav_title">Profile</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/verify.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Approvals</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/unboxing.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/manager-products/<%= manager_username %>" class="nav_title">Products</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/user.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/get-staff-details/<%= manager_username %>" class="nav_title">Staff Members</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/marketplace.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Retailers</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/invoice.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Invoices</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/email.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Messages</a>
+                    </div>
+                </div>
+            </div>
+            <div class="logout_button">
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/settings.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#">Settings</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/log-out.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="logout_btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Profile Page -->
+        <div class="PROFILE">
+            <header>
+                <h1>Profile</h1>
+                <div class="profile_container">
+                    <div class="profile_icon">
+                        <img src="https://api.dicebear.com/7.x/initials/svg?seed=<%= manager_firstName %> <%= manager_lastName %>" alt=""
+                        width="100%" height="100%" style="border-radius: 50%;"
+                        >
+                    </div>
+                    <div class="desc">
+                        <p class="name">
+                            <%= manager_firstName %>
+                            <%= manager_lastName %>
+                        </p>
+                        <p class="role">Manager</p>
+                    </div>
+                </div>  
+            </header>
+            <div class="profile_main_container">
+                <div class="profile_info">
+                    <div class="profile_img">
+                        <img src="https://api.dicebear.com/7.x/initials/svg?seed=<%= manager_firstName %> <%= manager_lastName %>" alt=""
+                        width="100%" height="100%" style="border-radius: 50%;"
+                        >
+                    </div>
+                    <div class="user_desc">
+                        <div class="user_name">
+                            <%= manager_firstName %>
+                            <%= manager_lastName %>
+                        </div>
+                        <div class="user_role">Manager</div>
+                    </div>
+                    <img src="../images/work_time.png" alt="" width="250px" height="250px" class="work_time_img">
+                </div>
+
+                <div class="about_page">
+                    <div class="box-1">
+                        <div class="header">
+                            <p style="font-size: 1.3rem; font-weight: bold; letter-spacing: 1px;">ABOUT</p>
+                            <img src="../images/edit.png" alt="" width="35px" height="35px" class="edit">
+                        </div>
+                        <div class="form_container_1">
+                            <form id="form">
+                                <div class="dark_blue">
+                                    <label for="fname"> 
+                                        <p style="width: 120px;">First Name</p>
+                                        <input type="text" id="fname" value="<%= manager_firstName %>" readonly>  
+                                    </label>
+                                    <label for="lname">
+                                        <p style="width: 120px;">Last Name</p>
+                                        <input type="text" id="lname" value="<%= manager_lastName %>" readonly>
+                                    </label>
+                                </div>
+
+                                <div class="light_blue">
+                                    <label for="role"> 
+                                        <p style="width: 120px;">Role</p>
+                                        <input type="text" id="role" value="Manager" readonly>
+                                    </label>
+                                    <label for="doj">
+                                        <p style="width: 120px;">Date of Joining</p>
+                                        <input type="text" id="doj" value="<%= manager_doj %>" readonly>
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="box-1" style="margin-top: 25px;">
+                        <div class="header">
+                            <p style="font-size: 1.3rem; font-weight: bold; letter-spacing: 1px;">OTHER INFORMATION</p>
+                        </div>
+                        <div class="form_container_1">
+                            <form>
+                                <div class="dark_blue">
+                                    <label for="gender"> 
+                                        <p style="width: 120px;">Gender</p>
+                                        <input type="text" id="fname">
+                                    </label>
+                                    <label for="dob">
+                                        <p style="width: 120px;">Date of Birth</p>
+                                        <input type="text" id="dob" value="- -" readonly>
+                                    </label>
+                                </div>
+
+                                <div class="light_blue" style="gap: 235px;">
+                                    <label for="email"> 
+                                        <p style="width: 120px;">Email</p>
+                                        <input type="email" id="email" value="<%= manager_email%>" style="width: 320px;" readonly>
+                                    </label>
+                                    <label for="contact">
+                                        <p style="width: 140px;">Contact Number</p>
+                                        <input type="text" id="contact" value="<%= manager_contact %>" readonly>
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="save_and_cancel_buttons">
+                        <button class="cancel_opt">
+                            Cancel
+                        </button>
+                        <button class="save_opt">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="logout_page">
+        <div class="logout_popup">
+            <h1>Log out</h1>
+            <div>Are you Sure ?</div>
+            <div class="logout_btns">
+                <button class="cancel">Cancel</button>
+                <button class="yes">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/manager/dashboard.js"></script>
+    <script src="../javascript/manager/profile.js"></script>
+</body>
+</html>

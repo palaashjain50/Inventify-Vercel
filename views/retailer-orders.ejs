@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/retailer/dashboard.css">
+    <!-- <link rel="stylesheet" href="../css/retailer/CART.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .ORDERS {
+            margin-left: 280px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .ORDERS {
+            margin-left: 280px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .ORDERS > header {
+            padding: 15px;
+            width: calc(100vw - 290px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgb(202, 202, 202);
+            position: fixed;
+            top: 0;
+            background-color: white;
+        }
+
+        .order-list {
+            min-height: calc(100vh - 300px);
+        }
+        .order-card {
+            margin-left: 10px;
+            width: calc(100vw - 310px);
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+        }
+
+        .ORDERS > header > h1{
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .profile_container {
+            width: 200px;
+            height: 55px;
+            background-color: #D9D9D9;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            padding: 5px 0px 5px 15px;
+            gap: 15px;
+        }
+
+        .profile_icon {
+            width: 38px;
+            height: 38px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .desc {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .name {
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+
+        .role {
+            font-size: 0.9rem;
+        }
+
+        .ORDERS .subheader {
+            padding: 15px;
+            width: calc(100vw - 290px);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            position: fixed;
+            top: 86px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background-color: white;
+            z-index: 0;
+        }      
+        
+        .selectForm {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar_container">
+            <div class="logo_container">
+                Inventify
+            </div>
+            <div class="navigations">
+                <div class="nav_item" >
+                    <div class="nav_icon">
+                        <img src="../images/grid.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/retailer-dashboard/<%= username %>" class="nav_title">Dashboard</a>
+                    </div>
+                </div>
+                <div class="nav_item" >
+                    <div class="nav_icon">
+                        <img src="../images/profile.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/retailer-profile/<%= username %>" class="nav_title">Profile</a>
+                    </div>
+                </div>
+                <div class="nav_item" >
+                    <div class="nav_icon">
+                        <img src="../images/unboxing.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/retailer-products/<%= username %>" class="nav_title">Products</a>
+                    </div>
+                </div>
+                
+                <div class="nav_item" >
+                    <div class="nav_icon">
+                        <img src="../images/invoice.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/retailer-cart/<%= username %>" id="cartLink"  class="nav_title">Cart</a>
+                    </div>
+                </div>
+
+                <div class="nav_item" id="mainLink">
+                    <div class="nav_icon">
+                        <img src="../images/profile.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/retailer-orders/<%= username %>" class="nav_title">Orders</a>
+                    </div>
+                </div>
+
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/invoice.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Invoices</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/email.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Messages</a>
+                    </div>
+                </div>
+            </div>
+            <div class="logout_button">
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/settings.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#">Settings</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/log-out.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="logout_btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ORDERS Page -->
+        <div class="ORDERS">
+            <header>
+                <h1 class="font-semibold">ORDERS</h1>
+                <div class="profile_container">
+                    <div class="profile_icon">
+                        <img src="https://api.dicebear.com/7.x/initials/svg?seed=<%= firstName %> <%= lastName %>" alt=""
+                        width="100%" height="100%" style="border-radius: 50%;"
+                        >
+                    </div>
+                    <div class="desc">
+                        <p class="name">
+                            <%= username %>
+                        </p>
+                        <p class="role">Retailer</p>
+                    </div>
+                </div> 
+            </header>
+
+            <div class="fixed top-[90px] right-[10px] text-[20px] font-semibold">
+                <label for="filter" class="flex gap-1 bg-white px-5 py-3 rounded-[15px] selectForm">
+                    <img src="../images/filter.png" alt="" width="25px" height="25px">
+                    <select name="filter" id="filter" class="outline-none border-[#071E41] font-normal rounded-[6px]">
+                        <option value="Pending">Pending</option>
+                        <option value="Approved">Approved</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="order-list flex flex-col gap-5 mt-[160px]">
+                <% for(let i = 0 ; i < productsOrder.length; ++i) { %>
+                    <div class="order-card rounded-[15px]">
+                        <div class="w-full p-5">
+                            <div class="flex justify-between text-[20px]">
+                                <h1>Transaction ID <span class="ml-2 text-[18px] tracking-widest font-semibold"><%= productsOrder[i]._id %></span></h1>
+                                <% if(productsOrder[i].status === 'Pending' || productsOrder[i].status === 'In Approval') { %>
+                                    <p class="font-semibold w-[150px] bg-[#e0f2fe] px-2 py-1 rounded-[5px] tracking-wide text-center"><%= productsOrder[i].status %></p>
+                                <% } else if(productsOrder[i].status === 'Approved') {%>
+                                    <p class="font-semibold w-[150px] bg-[#86efac] px-2 py-1 rounded-[5px] tracking-wide text-center">Approved</p>
+                                <% } else if(productsOrder[i].status === 'Cancelled') { %>
+                                    <p class="font-semibold  w-[150px] text-center text-white bg-[#ef4444] px-2 py-1 rounded-[5px] tracking-wide">Cancelled</p>
+                                <% } %>
+                            </div>
+                            <div class="mt-[8px] font-semibold text-[19px] flex flex-col gap-[5px]">
+                                <% for(let j = 0 ; j < productsOrder[i].products.length; ++j) { %>
+                                    <p> <span class="text-[#9ca3af] font-bold"><%= productsOrder[i].products[j].qtyStrip %> x</span> <%= productsOrder[i].products[j].productName %></p>
+                                    <!-- <p> <span class="text-[#9ca3af] font-bold">5 x</span> Amoxicillin</p> -->
+                                <% } %>
+                            </div>
+                            <div class="mt-[15px] font-normal text-[20px] flex justify-between">
+                                <p>Ordered Date <span class="ml-2 text-[18px] tracking-widest font-semibold"><%= productsOrder[i].orderCreatedAt %></span></p>
+                                <p class="font-bold tracking-wide">&#8377;<%= productsOrder[i].totalAmount %></p>
+                            </div>
+                        </div>
+                    </div>
+
+                <% } %>
+           
+        </div>
+       </div>
+    </div>
+
+    <div class="logout_page">
+        <div class="logout_popup">
+            <h1>Log out</h1>
+            <div>Are you Sure ?</div>
+            <div class="logout_btns">
+                <button class="cancel">Cancel</button>
+                <button class="yes">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/retailer/dashboard.js"></script>
+    <!-- <script src="../javascript/retailer/order.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/staff/dashboard.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- <h1>Staff</h1> -->
+    <div class="wrapper">
+        
+        <div class="sidebar_container">
+            <div class="logo_container">
+                Inventify
+            </div>
+            <div class="navigations">
+                <div class="nav_item" id="mainLink">
+                    <div class="nav_icon">
+                        <img src="../images/grid.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/staff-dashboard/<%= staff_username %>" class="nav_title">Dashboard</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/profile.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/staff-profile/<%= staff_username %>" class="nav_title">Profile</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/verify.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Approvals</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/unboxing.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/staff-products/<%= staff_username %>" class="nav_title">Products</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/unboxing.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/staff-orders/<%= staff_username %>" class="nav_title">Orders</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/marketplace.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Retailers</a>
+                    </div>
+                </div>
+                <!-- <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/email.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Messages</a>
+                    </div>
+                </div> -->
+            </div>
+            <div class="logout_button">
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/settings.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#">Settings</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/log-out.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="logout_btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="DASHBOARD">
+            <header>
+                <h1 class="font-bold">Dashboard</h1>
+                <div class="profile_container">
+                    <div class="profile_icon">
+                        <img src="https://api.dicebear.com/7.x/initials/svg?seed=<%= firstName %> <%= lastName %>" alt=""
+                        width="100%" height="100%" style="border-radius: 50%;"
+                        >
+                    </div>
+                    <div class="desc">
+                        <p class="name">
+                            <%= staff_username %>
+                        </p>
+                        <p class="role">Staff</p>
+                    </div>
+                </div> 
+            </header>
+            <div class="main_container">
+                <div class="active_users_container">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, eos.
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="logout_page">
+        <div class="logout_popup">
+            <h1>Log out</h1>
+            <div>Are you Sure ?</div>
+            <div class="logout_btns">
+                <button class="cancel">Cancel</button>
+                <button class="yes">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/staff/dashboard.js"></script>
+</body>
+</html>

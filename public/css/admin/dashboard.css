@@ -1,0 +1,266 @@
+/* Lobster font */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@300&display=swap');
+
+/* All Jejugothic fonts are changed to Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@300&family=Roboto:wght@300&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Judson&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+/* global variables */
+:root {
+    --dark-blue: #071E41;
+    --light-blue: #7CA7FB;
+    --white: #fff;
+    --black: #000;
+    --green: #5DDD72;
+    --red: #F84242;
+    --light-grey: #D9D9D9;
+}
+
+/*For scroll bar*/
+::-webkit-scrollbar {
+    width: 4px;   
+}
+ 
+::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 4px;
+    height: 10%;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(83, 127, 210);
+}
+
+.wrapper {
+    overflow-x: hidden;
+    display: flex;
+}
+
+.sidebar_container {
+    position: fixed;
+    width: 280px;
+    background-color: var(--dark-blue);
+    height: 100vh;
+}
+
+.logo_container {
+    margin-top: 30px;
+    margin-left: 50px;
+    font-family: 'Lobster';
+    color: var(--light-blue);
+    font-size: 2rem;
+}
+
+.navigations, .logout_button {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    height: 300px;
+}
+
+.nav_item {
+    font-size: 1.1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Roboto', sans-serif;
+    width: 250px;
+    border: 1px solid var(--light-blue);
+    border-radius: 15px;
+    padding-left: 30px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.nav_item > div > a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.logout_button {
+    margin-top: 250px;
+}
+
+.inactive {
+    display: none;
+}
+
+.logout_page {
+    margin-left: 280px;
+    width: calc(100vw - 280px);
+    height: 100vh;
+}
+
+.logout_popup {
+    position: relative;
+    width: 300px;
+    height: 180px;
+    top: 50%;
+    left: 45%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 20px;
+    border: 1px solid #85B6FE;
+    background: #071E41;
+    box-shadow: 5px 4px 25px 0px rgba(0, 0, 0, 0.25);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    padding: 15px;
+    gap: 15px;
+}
+
+.logout_btns {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.cancel, .yes {
+    outline: none;
+    border: none;
+    padding: 8px;
+    width: 120px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel {
+    background-color: var(--red);
+    color: white;
+}
+
+.yes {
+    background-color: var(--green);
+    color: var(--dark-blue);
+}
+
+
+.DASHBOARD {
+    margin-left: 280px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.DASHBOARD > header {
+    padding: 15px;
+    width: calc(100vw - 290px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgb(202, 202, 202);
+}
+
+.DASHBOARD > header > h1{
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.profile_container {
+    width: 200px;
+    height: 55px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 5px 0px 5px 15px;
+    gap: 15px;
+}
+
+.profile_icon {
+    width: 38px;
+    height: 38px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.role {
+    font-size: 0.9rem;
+}
+
+.active_users_container  {
+    padding: 15px;
+    width: calc(100vw - 290px);
+    height: 450px;
+}
+
+.active_users_container > h1 {
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.bar {
+    margin-top: 17px;
+    width: 63px;
+    height: 5px;
+    background-color: var(--black);
+}
+
+.boxes {
+    width: 90%;
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 35px;
+}
+
+.add_ {
+    width: 320px;
+    height: 250px;
+    background-color: var(--dark-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    color: var(--white);
+    border-radius: 15px;
+    box-shadow: rgba(61, 60, 93, 0.56) 0px 15px 50px 4px;
+}
+
+.add_:hover {
+    scale: 1.02;
+    box-shadow: rgba(61, 60, 93, 0.56) 0px 22px 70px 4px;
+}
+
+.total_staff, .total_managers{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.role_type {
+    font-size: 2rem;
+}
+
+.add_staff, .add_products {
+    cursor: pointer;
+}

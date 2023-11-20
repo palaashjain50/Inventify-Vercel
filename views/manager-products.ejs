@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/manager/dashboard.css">
+    <link rel="stylesheet" href="../css/manager/product.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="sidebar_container">
+            <div class="logo_container">
+                Inventify
+            </div>
+            <div class="navigations">
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/grid.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/manager-dashboard/<%= manager_username %>" class="nav_title">Dashboard</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/profile.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/manager-profile/<%= manager_username %>" class="nav_title">Profile</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/verify.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Approvals</a>
+                    </div>
+                </div>
+                <div class="nav_item" id="mainLinkProduct">
+                    <div class="nav_icon">
+                        <img src="../images/unboxing.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/manager-products/<%= manager_username %>" class="nav_title"  style="color: #071E41; font-weight: 600;" >Products</a>
+                        <!-- <a href="#" class="nav_title" style="color: #071E41; font-weight: 600;">Products</a> -->
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/user.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/get-staff-details/<%= manager_username %>" class="nav_title">Staff Members</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/marketplace.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Retailers</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/invoice.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Invoices</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/email.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Messages</a>
+                    </div>
+                </div>
+            </div>
+            <div class="logout_button">
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/settings.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#">Settings</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/log-out.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="logout_btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="PRODUCT">
+            <header>
+                <div class="sub-header">
+                    <h1 class="font-semibold text-[30px]">PRODUCTS</h1>
+                    <div class="profile_container">
+                        <div class="profile_icon">
+                            <img src="https://api.dicebear.com/7.x/initials/svg?seed=<%= firstName %> <%= lastName %>" alt=""
+                            width="100%" height="100%" style="border-radius: 50%;"
+                            >
+                        </div>
+                        <div class="desc">
+                            <p class="name">
+                                <%= manager_username %>
+                            </p>
+                            <p class="role">Manager</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="add_product_btn">
+                    <div class="add_product">
+                        <div>
+                            <img src="../images/plus.png" alt="" width="20px" height="20px" style="margin-top: 2px;">
+                        </div>
+                        <p>Add</p>
+                    </div>
+                    <div class="search_product">
+                        <form>
+                            <div>
+                                <img src="../images/magnifying-glass.png" alt="" width="20px" height="20px">
+                                <input type="text" placeholder="Search Product">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </header>
+
+            <div class="main_container">
+                <div class="active_product_container">
+                    <header class="heading">
+                        <p class="product_header" id="header-1"
+                            style="margin-left: 10px; width: 520px; font-size: 1.2rem;">Products</p>
+                        <p class="product_header" style="margin-left: 30px; width: 150px; font-size: 1.2rem; ;">Quantity
+                        </p>
+                        <p class="product_header" style="margin-left: 30px; width: 120px; font-size: 1.2rem; ;">Price
+                        </p>
+                        <p class="product_header" style="margin-left: 30px; width: 170px; font-size: 1.2rem; ;">Reorder
+                            Level</p>
+                    </header>
+                    <div class="products_profile_container">     
+
+                        <% for(let i = 0; i < products.length; i++) { %>
+
+                            <div class="products_container">
+
+                                <div class="product_name" style="margin-left: 25px; width: 520px; font-size: 1.2rem;">
+                                    <div class="product_img" style="margin-left: 28px; margin-right: 5px; ">RK</div>
+                                    <div><%= products[i].name %></div>
+                                </div>
+                                <div class="product_qty" style="margin-left: 30px; width: 150px; font-size: 1.2rem; ">
+                                    <%= products[i].quantity %>
+                                </div>
+                                <div class="product_price" style="margin-left: 30px; width: 120px; font-size: 1.2rem; ">
+                                    <%= products[i].unitprice %>
+                                </div>
+                                <div class="product_reorder_lvl" style="margin-left: 30px; width: 170px; font-size: 1.2rem; ">
+                                    <%= products[i].minimum_stock_level %>
+                                </div>
+                                <div class="action">
+                                    <button class="edit text-[20px]">Edit</button>
+                                    <button class="delete">Delete</button>
+                                </div>
+
+                            </div>
+
+                        <% } %>
+                    <div class="products_profile_container">
+                        <div class="products_container">
+                            <div class="product_name" style="margin-left: 25px; width: 520px; font-size: 1.2rem;">
+                                <div class="product_img" style="margin-left: 28px; margin-right: 5px; ">RK</div>
+                                <div>Crocin 650mg Tablet</div>
+                            </div>
+                            <div class="product_qty" style="margin-left: 30px; width: 150px; font-size: 1.2rem; ">120
+                            </div>
+                            <div class="product_price" style="margin-left: 30px; width: 120px; font-size: 1.2rem; ">249
+                            </div>
+                            <div class="product_reorder_lvl"
+                                style="margin-left: 30px; width: 170px; font-size: 1.2rem; ">12</div>
+                            <div class="action">
+                                <button class="edit">Edit</button>
+                                <button class="delete">Delete</button>
+                            </div>
+                            <div style="margin-left: 20px;" id="google">
+                                <p>Upload Product Image</p>
+                                <button id="authorize_button" onclick="handleAuthClick()" style="padding: 5px;">Authorize</button>
+                                <pre id="content" style="white-space: pre-wrap;"></pre>
+                                <input type="file" id="fileInput" hidden><br>
+                                <button id="submit" hidden style="padding: 5px;">Submit</button>
+                                <button id="signout_button" onclick="handleSignoutClick()" hidden style="padding: 5px;">Sign Out</button>
+                                <script type="text/javascript">
+                                    const CLIENT_ID = '490312691383-o65i6pg1jmst0tfpsk97cjmn7at007fu.apps.googleusercontent.com';
+                                    const API_KEY = 'AIzaSyCcPmydpZtaL_wk9OD2ipSQnr2S7CFfOns';
+                                    const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
+                                    const SCOPES = 'https://www.googleapis.com/auth/drive.file';
+                                    let tokenClient;
+                                    let gapiInited = false;
+                                    let gisInited = false;
+                                    document.getElementById('authorize_button').style.visibility = 'hidden';
+                                    document.getElementById('signout_button').style.visibility = 'hidden';
+                                    function gapiLoaded() {
+                                        gapi.load('client', initializeGapiClient);
+                                    }
+                                    async function initializeGapiClient() {
+                                        await gapi.client.init({
+                                            apiKey: API_KEY,
+                                            discoveryDocs: [DISCOVERY_DOC],
+                                        });
+                                        gapiInited = true;
+                                        maybeEnableButtons();
+                                    }
+                                    function gisLoaded() {
+                                        tokenClient = google.accounts.oauth2.initTokenClient({
+                                            client_id: CLIENT_ID,
+                                            scope: SCOPES,
+                                            callback: '',
+                                        });
+                                        gisInited = true;
+                                        maybeEnableButtons();
+                                    }
+                                    function maybeEnableButtons() {
+                                        if (gapiInited && gisInited) {
+                                            document.getElementById('authorize_button').style.visibility = 'visible';
+                                        }
+                                    }
+                                    function handleAuthClick() {
+                                        tokenClient.callback = async (resp) => {
+                                            if (resp.error !== undefined) {
+                                                throw (resp);
+                                            }
+                                            document.getElementById('signout_button').style.visibility = 'visible';
+                                            document.getElementById('signout_button').removeAttribute("hidden");
+                                            document.getElementById('authorize_button').style.visibility = 'hidden';
+                                            // await listFiles();
+                                            document.getElementById('fileInput').removeAttribute("hidden");
+                                            document.getElementById('submit').removeAttribute("hidden");
+                                        };
+                                        if (gapi.client.getToken() === null) {
+                                            tokenClient.requestAccessToken({ prompt: 'consent' });
+                                        } else {
+                                            tokenClient.requestAccessToken({ prompt: '' });
+                                        }
+                                    }
+                                    function handleSignoutClick() {
+                                        const token = gapi.client.getToken();
+                                        if (token !== null) {
+                                            google.accounts.oauth2.revoke(token.access_token);
+                                            gapi.client.setToken('');
+                                            document.getElementById('content').innerText = '';
+                                            document.getElementById('authorize_button').innerText = 'Authorize';
+                                            document.getElementById('signout_button').style.visibility = 'hidden';
+                                        }
+                                        document.getElementById("google").style.display = "hidden";
+                                    }
+                                    async function listFiles() {
+                                        let response;
+                                        try {
+                                            response = await gapi.client.drive.files.list({
+                                                'pageSize': 10,
+                                                'fields': 'files(id, name)',
+                                            });
+                                        } catch (err) {
+                                            document.getElementById('content').innerText = err.message;
+                                            return;
+                                        }
+                                        const files = response.result.files;
+                                        if (!files || files.length == 0) {
+                                            document.getElementById('content').innerText = 'No files found.';
+                                            return;
+                                        }
+                                        const output = files.reduce(
+                                            (str, file) => `${str}${file.name} (${file.id})\n`,
+                                            'Files:\n');
+                                        document.getElementById('content').innerText = output;
+                                    }
+                                    document.getElementById("submit").onclick = async () => {
+                                        const formData = new FormData();
+                                        formData.append('metadata', new Blob([JSON.stringify({
+                                            name: document.getElementById('fileInput').files[0].name
+                                        })], {
+                                            type: 'application/json'
+                                        }))
+                                        formData.append('file', document.getElementById('fileInput').files[0]);
+                                        // console.log(document.getElementById('fileInput').files[0]);
+                                        const accessToken = gapi.client.getToken().access_token;
+                                        fetch("https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart", {
+                                            method: "POST",
+                                            headers: new Headers({
+                                                'Authorization': 'Bearer ' + accessToken
+                                            }),
+                                            body: formData
+                                        }).then(res => res.json()).then(val => {
+                                            makePublic(val.id, accessToken);
+                                        });
+                                    }
+                                    async function makePublic(id, accessToken) {
+                                        const requestData = {
+                                            'role': 'reader',
+                                            'type': 'anyone'
+                                        };
+                                        await fetch(`https://www.googleapis.com/drive/v3/files/${id}/permissions`, {
+                                            method: "POST",
+                                            headers: new Headers({
+                                                'Authorization': 'Bearer ' + accessToken,
+                                                'Content-Type': 'application/json'
+                                            }),
+                                            body: JSON.stringify(requestData)
+                                        });
+                                        window.alert("Image Uploaded Successfully!");
+                                        document.getElementById("google").style.display = "none";
+                                    }
+                                </script>
+                                <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+                                <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="logout_page">
+        <div class="logout_popup">
+            <h1>Log out</h1>
+            <div>Are you Sure ?</div>
+            <div class="logout_btns">
+                <button class="cancel">Cancel</button>
+                <button class="yes">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/manager/dashboard.js"></script>
+</body>
+
+</html>
+
+<!-- product_img, product_name, qty, reorder_level -->
+
+<!-- on clicking to particular order =>
+1. prod_img, prod_name, created source(manager_name), qty, category
+2. sales information => selling price, description, total sales
+3. transaction history => retailer name, qty_purchased
+4. 
+ -->

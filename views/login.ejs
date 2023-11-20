@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/login.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+</head>
+<body>
+    <div class="wrapper ">
+       
+        <nav>
+            <div>
+                <div class="logo">Inventify</div>
+                <div class="navlinks">
+                    <div>
+                        <a href="./homepage" >Home</a>
+                    </div>
+                    <div>
+                        <a href="./aboutus">About Us</a>
+                    </div>
+                    <div>
+                        <a href="./contactus">Contact Us</a>
+                    </div>
+                </div>
+                <div class="auth_buttons">
+                    <button class="login">
+                       <a href="./login" style="all: unset;">Login</a>
+                    </button>
+                    <button class="signup">
+                        <a href="./signup" style="all: unset;">SignUp</a>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Home Page -->
+        <div class="login_page_container">
+            <div class="form_container">
+                <h2>WELCOME BACK</h2>
+                <p>Reconnect and Reclaim Control</p>
+                <div class="roles">
+                    <div class="role" style="border-bottom-left-radius: 5px; border-top-left-radius: 5px; border-bottom: 2px solid white;">Admin</div>
+                    <div class="role" style="border-bottom: 2px solid white;">Manager</div>
+                    <div class="role" style="border-bottom: 2px solid white;">Staff</div>
+                    <div class="role"  style="border-bottom-right-radius: 5px; border-top-right-radius: 5px; border-bottom: 2px solid white;">Retailer</div>
+                </div>
+                <div class="form">
+                    <form>
+                        <div>
+                            <label for="username" class="field">
+                                <span>
+                                    Username / Email Addresss 
+                                    <span style="color: red;">*</span>
+                                </span> </span> 
+                                <input type="email" placeholder="Enter username / email address" id="username" required>
+                            </label>
+                        </div>
+
+                        <div class="field">
+                            <label for="password" class="field">
+                                <span>
+                                    Password 
+                                    <span style="color: red;">*</span>
+                                </span> </span> 
+                                <input type="password" placeholder="Enter password" id="password" required>
+                            </label>
+                        </div>
+
+
+                        <button id="submit">
+                            Login
+                        </button>
+
+                        <div class="option">
+                            <div class=""></div>
+                            <p>OR</p>
+                            <div class=""></div>
+                        </div>
+                        <script src="https://accounts.google.com/gsi/client" async defer></script>
+                        <div id="g_id_onload"
+                            data-client_id="866165405772-mlmgoiqdd6m83a53tpskee4feiauqhmd.apps.googleusercontent.com"
+                            data-callback="handleCredentialResponse">
+                        </div>
+                        <div class="g_id_signin" data-type="standard" data-width="500"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="img_container">
+                <img src="../images/login_logo.png" style="width: 611px; height: 611px;">
+            </div>
+        </div>
+    </div>
+    <script src="../javascript/visitors/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+/* Lobster font */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@300&display=swap');
+
+/* All Jejugothic fonts are changed to Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@300&family=Roboto:wght@300&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Judson&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+/* global variables */
+:root {
+    --dark-blue: #071E41;
+    --light-blue: #7CA7FB;
+    --white: #fff;
+    --black: #000;
+    --green: #5DDD72;
+    --red: #F84242;
+    --light-grey: #D9D9D9;
+}
+
+/*For scroll bar*/
+::-webkit-scrollbar {
+    width: 4px;   
+}
+ 
+::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 4px;
+    height: 10%;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(83, 127, 210);
+}
+
+
+.PROFILE {
+    margin-left: 280px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.PROFILE > header {
+    padding: 15px;
+    width: calc(100vw - 290px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgb(202, 202, 202);
+}
+
+.PROFILE > header > h1{
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.profile_container {
+    width: 200px;
+    height: 55px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 5px 0px 5px 15px;
+    gap: 15px;
+}
+
+.profile_icon {
+    width: 38px;
+    height: 38px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.role {
+    font-size: 0.9rem;
+}
+
+.profile_info {
+    width: 95%;
+    margin: 20px auto;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    height: 150px;
+}
+
+.profile_img {
+    position: relative;
+    margin-left: 50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--dark-blue);
+    background-color: var(--light-blue);
+    font-size: 2rem;
+    border: 2px solid var(--white);
+}
+
+.user_desc {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.user_name {
+    font-size: 1.8rem;
+}
+
+.user_role {
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.work_time_img {
+    position: absolute;
+    right: 50px;
+    top: 70px;
+    filter: drop-shadow(10px 10px 10px var(--dark-blue));
+}
+
+.about_page {
+    margin-top: 60px;
+}
+
+.box-1 {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 0px auto;
+    gap: 5px;
+}
+
+.header {
+    width: 100%;
+    padding: 8px 20px;
+    border: 2px solid var(--dark-blue);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.edit {
+    cursor: pointer;
+}
+
+.form_container_1 {
+    width: 100%;
+}
+
+.dark_blue {
+    width: 100%;
+    display: flex;
+    gap: 350px;
+    align-items: center;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 15px;
+}
+
+.dark_blue > label {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: 1.1rem;
+}
+
+.dark_blue > label > input {
+    padding: 5px;
+}
+
+.light_blue {
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    gap: 350px;
+    font-weight: bold;
+    align-items: center;
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+    padding: 15px;
+}
+
+.light_blue > label {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: 1.1rem;
+}
+
+.light_blue > label > input {
+    padding: 5px;
+}
+
+input {
+    font-size: 1.1rem;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid var(--white);
+    border-bottom: 3px solid var(--white);  
+    padding-left: 12px;
+}
+
+.save_and_cancel_buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+    margin-left: 1000px;
+}
+
+.save_and_cancel_buttons > button {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel_opt {
+    color: var(--white);
+    background-color: var(--red);
+}
+
+.save_opt {
+    color: var(--black);
+    background-color: var(--green);
+}
+
+.save_opt:hover{
+    background-color: green;
+    color: white;
+}
+
+.cancel_opt:hover {
+    background-color: #cf1d1d;
+}
+
+#mainLinkProfile {
+    background-color: var(--white);
+}
+
+#mainLinkProfile > div > a {
+    color: var(--dark-blue);
+    font-weight: 600;
+}

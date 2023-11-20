@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/manager/dashboard.css">
+    <link rel="stylesheet" href="../css/manager/staff.css">
+</head>
+<body> 
+    <div class="wrapper">
+        
+        <div class="sidebar_container">
+            <div class="logo_container">
+                Inventify
+            </div>
+            <div class="navigations">
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/grid.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/manager-dashboard/<%= manager_username %>" class="nav_title">Dashboard</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/profile.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/manager-profile/<%= manager_username %>" class="nav_title">Profile</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/verify.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Approvals</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/unboxing.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/manager-products/<%= manager_username %>" class="nav_title">Products</a>
+                    </div>
+                </div>
+                <div class="nav_item" id="mainLinkStaff">
+                    <div class="nav_icon">
+                        <img src="../images/user.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="/get-staff-details/<%= manager_username %>" class="nav_title">Staff Members</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/marketplace.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Retailers</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/invoice.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Invoices</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/email.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="nav_title">Messages</a>
+                    </div>
+                </div>
+            </div>
+            <div class="logout_button">
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/settings.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#">Settings</a>
+                    </div>
+                </div>
+                <div class="nav_item">
+                    <div class="nav_icon">
+                        <img src="../images/log-out.png" alt ="" width="20px" height="20px">
+                    </div>
+                    <div>
+                        <a href="#" class="logout_btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="STAFF">
+            <header style="position: fixed; z-index: 1; background-color: white;">
+                <div class="sub-header">
+                    <h1>STAFF</h1>
+                    <div class="profile_container">
+                        <div class="profile_icon">HJ</div>
+                        <div class="desc">
+                            <p class="name">
+                                <%= manager_username %>
+                            </p>
+                            <p class="role">Manager</p>
+                        </div>
+                    </div> 
+                </div>
+                <div class="add_staff_btn">
+                    <div class="add_user">
+                        <div>
+                            <img src="../images/plus.png" alt="" width="20px" height="20px" style="margin-top: 2px;">
+                        </div>
+                        <p>Add</p>
+                    </div>
+                    <div class="search_user">
+                        <form>
+                            <div>
+                                <img src="../images/magnifying-glass.png" alt="" width="20px" height="20px">
+                                <input type="text" placeholder="Search Staff">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="main_container">
+                <div class="active_staff_container">
+                    <header class="heading">
+                        <p class="profile_header">Profile</p>
+                        <p class="profile_header" style="margin-left: 20px; width: 180px;">Username</p>
+                        <p class="profile_header" style="margin-left: 20px; width: 320px;">Email</p>
+                        <p class="profile_header" style="margin-left: 20px; width: 150px;">Mobile</p>
+                        <p class="profile_header" style="margin-left: 20px; width: 200px;">Last Login</p>
+                        <p class="profile_header" style="margin-left: 20px; width: 200px;">Action</p>
+                    </header>
+
+                    <!--Staff will be added dynamically -->
+                    
+                    <div class="staff_profile_container">      
+                        <!-- <div class="staff_details">
+                            <div class="staff_img" style="margin-left: 28px; margin-right: 5px;">RK</div>
+                            <div class="staff_username" style="margin-left: 20px; width: 180px;">Rohit Kumar</div>
+                            <div class="staff_email" style="margin-left: 20px; width: 320px;">rohit.jain@gmail.com</div>
+                            <div class="staff_contact" style="margin-left: 20px; width: 150px;">+91 8110238921</div>
+                            <div class="staff_last_login" style="margin-left: 25px; width: 200px;">Aug, 19, 2022 11:47 a.m</div>
+                            <div class="action">
+                                <button class="edit">Edit</button>
+                                <button class="delete">Delete</button>
+                            </div>
+                        </div> -->
+
+
+                        <!-- <% for(let i = 0; i < 10; i++) { %>
+                            <br> <%= i %>
+                        <% } %> -->
+
+                        <% for(let i = 0; i < staff_data.length; i++) { %>
+                            <div class="staff_details">
+                                <div class="staff_img" style="margin-left: 28px; margin-right: 5px;">RK</div>
+                                <div class="staff_username" style="margin-left: 20px; width: 180px;">
+                                    <%= staff_data[i].username %>
+                                </div>
+                                <div class="staff_email" style="margin-left: 20px; width: 320px;">
+                                    <%= staff_data[i].email %>
+                                </div>
+                                <div class="staff_contact" style="margin-left: 20px; width: 150px;">
+                                    +91  <%= staff_data[i].contact %>
+                                </div>
+                                <div class="staff_last_login" style="margin-left: 25px; width: 200px;">
+                                    Aug, 19, 2022 11:47 a.m
+                                </div>
+                                <div class="action">
+                                    <button class="edit">Edit</button>
+                                    <button class="delete">Delete</button>
+                                </div>
+                            </div> 
+                        <% } %>
+
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+
+    <div class="logout_page">
+        <div class="logout_popup">
+            <h1>Log out</h1>
+            <div>Are you Sure ?</div>
+            <div class="logout_btns">
+                <button class="cancel">Cancel</button>
+                <button class="yes">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/manager/dashboard.js"></script>
+    <script src="../javascript/manager/staff.js"></script>
+</body>
+</html>
