@@ -13,7 +13,12 @@ const PORT = process.env.PORT || 3000
 
 const app = express()
 
-app.use(cors())
+app.use(cors({
+    origin: "https://inventify-render.onrender.com",
+    methods: 'GET, POST',
+    credentials: true,
+    allowedHeaders:'Content-Type, Authorization'
+}));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
