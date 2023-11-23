@@ -36,7 +36,7 @@ async function updateStatus(id, status) {
     try {
         console.log(id, status)
         const staff_username = localStorage.getItem("username")
-        const response = await fetch(`http://localhost:5500/update-product-status/${staff_username}`  , {
+        const response = await fetch(`https://inventify-render.onrender.com/update-product-status/${staff_username}`  , {
             method: 'POST', 
             body: JSON.stringify({
                 transactionID: id,
