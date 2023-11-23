@@ -50,7 +50,7 @@ document.querySelector('.create_user').addEventListener('click', (e) => {
 async function addStaff(username, password, role, fname, lname, email, contact, address, message) {
     try {
         const token = localStorage.getItem("token")
-        const response = await fetch('http://localhost:3000/api/create_staff/', {
+        const response = await fetch('https://inventify-render.onrender.com/api/create_staff/', {
             method: "POST",
             body: JSON.stringify({
                 username: username, password: password, role: role, fname: fname, lname: lname, email: email, contact: contact, address: address, message: message
