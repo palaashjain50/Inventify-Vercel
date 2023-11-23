@@ -135,7 +135,7 @@ async function login(email, password, roleType) {
 }
 
 async function handleCredentialResponse(obj) {
-    const response = await fetch("http://localhost:5500/signup-with-google", {
+    const response = await fetch("https://inventify-render.onrender.com/signup-with-google", {
         method: "POST",
         body: JSON.stringify({
             credential: obj.credential
