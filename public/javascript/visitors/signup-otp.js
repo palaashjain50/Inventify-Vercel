@@ -69,7 +69,7 @@ button.addEventListener('click', async(E) => {
         credentials.otp = enteredOTP
         console.log(credentials)
 
-        const response = await fetch("http://localhost:5500/signup", {
+        const response = await fetch("https://inventify-render.onrender.com/signup", {
             method: "POST",
             body: JSON.stringify({credentials
             }),
@@ -105,7 +105,7 @@ function startTimer() {
 // Set up the event listener outside the timer function
 const resendBtn = document.querySelector('.resend');
 resendBtn.addEventListener('click', async () => {
-  const response = await fetch("http://localhost:5500/get-otp", {
+  const response = await fetch("https://inventify-render.onrender.com/get-otp", {
     method: "POST",
     body: JSON.stringify({
       email: credentials.email,
