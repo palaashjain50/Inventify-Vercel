@@ -34,7 +34,7 @@ document.querySelector('.yes').addEventListener('click', async() => {
     localStorage.removeItem("role")
     document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
     // console.log(document.cookie("token"))
-    let response = await fetch('http://localhost:5500/logout', {
+    let response = await fetch('https://inventify-render.onrender.com/logout', {
         method: "POST"
     })
     let data = await response.json()
