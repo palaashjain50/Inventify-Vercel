@@ -40,7 +40,7 @@ else {
 async function getCartItems(cartItems) {
     try {
         let username = localStorage.getItem("username")
-        let response = await fetch(`http://localhost:5500/get-cart-items/${username}`, {
+        let response = await fetch(`https://inventify-render.onrender.com/get-cart-items/${username}`, {
             method: 'POST',
             body: JSON.stringify({
                 cart: cartItems
@@ -229,7 +229,7 @@ document.querySelector('.confirm-order').addEventListener('click', () => {
             const zip = "40104"
 
             const username = localStorage.getItem("username")
-            let response = await fetch(`http://localhost:5500/order-items/${username}`, {
+            let response = await fetch(`https://inventify-render.onrender.com/order-items/${username}`, {
                 method: "POST",
                 body: JSON.stringify(
                     {
