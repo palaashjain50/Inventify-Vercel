@@ -32,7 +32,7 @@ document.querySelector("#button").onclick = async (e) => {
     }
     else {
         // get-otp
-        const response = await fetch("http://localhost:5500/get-otp", {
+        const response = await fetch("https://inventify-render.onrender.com/get-otp", {
             method: "POST",
             body: JSON.stringify({
                 email: email,
@@ -72,7 +72,7 @@ document.querySelector("#button").onclick = async (e) => {
 }
 
 async function handleCredentialResponse(obj) {
-    const response = await fetch("http://localhost:5500/signup-with-google", {
+    const response = await fetch("https://inventify-render.onrender.com/signup-with-google", {
         method: "POST",
         body: JSON.stringify({
             credential: obj.credential
