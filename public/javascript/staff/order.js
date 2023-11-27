@@ -21,7 +21,7 @@ sendApprovalBtn.forEach((btn, idx) => {
     btn.addEventListener('click', () => {
         console.log('Click', orderStatus[idx].textContent.trim() ,idx)
         if(orderStatus[idx].textContent.trim() === 'Pending') {
-            orderStatus[idx].textContent = 'Cancelled'
+            orderStatus[idx].textContent = 'In Approval'
             btn.style.cssText = "background-color: #94a3b8"
             discardBtn[idx].style.cssText = "background-color: #94a3b8"
             // btn.remove()

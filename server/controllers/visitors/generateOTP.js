@@ -1,26 +1,18 @@
 const otpGenerator = require('otp-generator')
 const sendMail = require('../../configs/sendMail')
 const dbConfigs = require('../../configs/dbConnect')
-// Flow
-// 1.User enters name, contact, email, createPass, confirmPass
-// 2.OTP is send to user on it's mail. User details are not stored in DB
-// 
-// 
-// 
 
 async function generateOTP(req, res) {
     const userEmail = req.body.email
-    console.log(req.body)
+    // console.log(req.body)
     if(!userEmail) {
         return res.status(401).json({
             success: false,
-            message: "All fields required"
+            message: "Email address missing!"
         })
     }
     else {
         try {
-
-            console.log("in")
             const client = dbConfigs.getClient
             const dbo = client.db("Inventify") //Connecting to "Inventify" DB in Atlas
             var records = await dbo.collection("Users").find({email: userEmail}).toArray(0)
@@ -66,7 +58,7 @@ async function generateOTP(req, res) {
                                         "expireAt": expirationTimestamp
                                     }
                                 );
-                    console.log(otpBody);
+                    // console.log(otpBody);
                 }
 
                 // Send Mail
@@ -74,13 +66,13 @@ async function generateOTP(req, res) {
 
                 return res.status(200).json({
                     success: true,  
-                    message: 'OTP sent successfully',
+                    message: 'OTP sent successfully!',
                 })
             }
             else {
                 return res.status(401).json({
                     success: false,
-                    message: "Account already exists"
+                    message: "Account already exists!"
                 })
             }
         } catch (error) {

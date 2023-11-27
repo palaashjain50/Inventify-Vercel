@@ -192,7 +192,7 @@ button {
     color: black;
     border-radius: 20px;
     height: 43px;
-    margin-top: 80px;
+    margin-top: 40px;
     border: none;
     cursor: pointer;
     border-radius: 9px;
@@ -214,3 +214,35 @@ span {
     /* font-size: 11px; */
 }
 
+.option {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.option > div {
+    width: 45%;
+    height: 2px;
+    background-color: var(--white);
+}
+
+.option > p {
+    font-family: 'Roboto', sans-serif;
+}
+
+.g_id_signin {
+    width: 85%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.nsm7Bb-HzV7m-LgbsSe-MJoBVe {
+    background-color: var(--white);
+}
+
+.nsm7Bb-HzV7m-LgbsSe-BPrWId {
+    color: var(--dark-blue); 
+}

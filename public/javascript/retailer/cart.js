@@ -208,25 +208,25 @@ document.querySelector('.confirm-order').addEventListener('click', () => {
 
         const confirmOrder2 = document.querySelector('.confirmOrder2')
         confirmOrder2.addEventListener('click', async(e) => {
-            // const fname = document.querySelector('#fname').value
-            // const lname = document.querySelector('#lname').value
-            // const contact = document.querySelector('#contact').value
-            // const email = document.querySelector('#email').value
-            // const address = document.querySelector('#address').value
-            // const address2= document.querySelector('#address2').value
-            // const city = document.querySelector('#city').value
-            // const zip = document.querySelector('#zip').value
+            const fname = document.querySelector('#fname').value
+            const lname = document.querySelector('#lname').value
+            const contact = document.querySelector('#contact').value
+            const email = document.querySelector('#email').value
+            const address = document.querySelector('#address').value
+            const address2= document.querySelector('#address2').value
+            const city = document.querySelector('#city').value
+            const zip = document.querySelector('#zip').value
 
             e.preventDefault()
 
-            const fname = "Harsh"
-            const lname = "Jain"
-            const contact = "564545454"
-            const email = "ajdajsd@gmail.com"
-            const address = "address1"
-            const address2 = "address2"
-            const city = "thane"
-            const zip = "40104"
+            // const fname = "Harsh"
+            // const lname = "Jain"
+            // const contact = "564545454"
+            // const email = "ajdajsd@gmail.com"
+            // const address = "address1"
+            // const address2 = "address2"
+            // const city = "thane"
+            // const zip = "40104"
 
             const username = localStorage.getItem("username")
             let response = await fetch(`https://inventify-render.onrender.com/order-items/${username}`, {

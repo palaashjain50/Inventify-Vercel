@@ -8,6 +8,7 @@ dotenv.config()
 async function login(req, res) {
     try {
         const {email, password, role} = req.body
+        console.log(role);
         // console.log(email, password, role)
         if(!email || !password || !role) {
             return res.status(401).json({
@@ -28,7 +29,7 @@ async function login(req, res) {
                         message: "Account doesn't exist",
                     })
                 }
-                console.log(records)
+                // console.log(records)
                 var hashedPass = records[0].pass
                 
                 // Comparing password
@@ -73,7 +74,7 @@ async function login(req, res) {
                     return res.status(401).json({
                         success: false,
                         message: "Invalid Password",
-                        error: error
+                        
                     })
                 }
                 

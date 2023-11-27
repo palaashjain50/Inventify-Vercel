@@ -58,4 +58,23 @@ function alertManager(reorder) {
 
 // sendMail()
 
-module.exports = { sendMail, alertManager };
+function notifyRetailer(email, invoiceID) {
+    let mailOptions = {
+        from: "testerjain3575@gmail.com",
+        to: email,
+        subject: 'Order placed successfully',
+        html: `<div>
+                <p>Your order has been placed successfully!</p>
+                <p>Invoide ID ${invoiceID}</p>
+            </div>`,
+    }
+    
+    transporter.sendMail(mailOptions, function(err, data) {
+        if (err) {
+            console.log("Error " + err);
+        } else {
+            console.log("Email sent successfully");
+        }
+    })
+}
+module.exports = { sendMail, alertManager, notifyRetailer };

@@ -46,7 +46,7 @@ document.querySelector('.save_opt').addEventListener('click', () => {
 
 async function updateProfile(firstName, lastName, contact, email) {
     try {
-        // console.log(contact)
+        console.log(contact)
         const response = await fetch('https://inventify-render.onrender.com/update-profile', {
             method: "POST",
             body: JSON.stringify({

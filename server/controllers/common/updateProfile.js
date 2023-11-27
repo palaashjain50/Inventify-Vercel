@@ -8,7 +8,7 @@ async function updateProfile(req, res) {
             return res.status(401).json({
                 success: false,
                 message: "All fields required"
-            })
+            })  
         }
         try {
             const client = dbConfigs.getClient

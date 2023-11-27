@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/homepage.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    .article-container {
+        margin-top: 90px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .article {
+        flex: 0 0 calc(30% - 20px);
+        /* Adjust the width as needed, considering margins */
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-bottom: 20px;
+
+    }
+
+    h2 {
+        color: #007BFF;
+    }
+
+    p {
+        color: #555;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    a {
+        color: #007BFF;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+
+<body>
+    <div class="wrapper">
+        <nav>
+            <div>
+                <div class="logo">Inventify</div>
+                <div class="navlinks">
+                    <div>
+                        <a href="./homepage">Home</a>
+                    </div>
+                    <div>
+                        <a href="./aboutus">About Us</a>
+                    </div>
+                    <div>
+                        <a href="./contactus">Contact Us</a>
+                    </div>
+                    <div style="border-bottom: 3px solid white;">
+                        <a href="./blog " style="color: white; "">Blog</a>
+                    </div>
+                </div>
+                <div class=" auth_buttons">
+                            <button class="login">
+                                <a href="./login" style="all: unset;">Login</a>
+                            </button>
+                            <button class="signup">
+                                <a href="./signup" style="all: unset;">SignUp</a>
+                            </button>
+                    </div>
+                </div>
+        </nav>
+    </div>
+
+
+
+    <div class="article-container">
+        <% articles.articles.forEach(article=> { %>
+            <div class="article">
+                <h2><a href="<%= article.url %>" target="_blank">
+                        <%= article.title %>
+                    </a></h2>
+                <p>
+                    <%= article.description %>
+                </p>
+                <p>Published at: <%= new Date(article.publishedAt).toLocaleString() %>
+                </p>
+                <img src="<%= article.urlToImage %>" alt="<%= article.title %> Image">
+                <p>Author: <%= article.author %>
+                </p>
+                <p>Source: <%= article.source.name %>
+                </p>
+                <p><a href="<%= article.url %>" target="_blank">Read more</a></p>
+            </div>
+            <% }) %>
+    </div>
+
+    <!-- Home Page -->
+
+</body>
+
+</html>

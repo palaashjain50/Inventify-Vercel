@@ -57,7 +57,7 @@ document.querySelector("#button").onclick = async (e) => {
 
             localStorage.setItem("credentials", JSON.stringify(credentials))
 
-            // const response = await fetch("http://localhost:5500/signup", {
+            // const response = await fetch("https://inventify-render.onrender.com/signup", {
             //     method: "POST",
             //     body: JSON.stringify(credentials),
             //     headers: {

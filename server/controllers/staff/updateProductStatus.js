@@ -8,8 +8,9 @@ async function updateProductStatus(req) {
             const client = dbConfigs.getClient
             const dbo = client.db("Inventify")
             console.log(typeof transactionID)
+            var updatedOrder
             if(status === 'In Approval') {
-                const updatedOrder = await dbo.collection("Orders").updateOne(
+                updatedOrder = await dbo.collection("Orders").updateOne(
                     { _id: new ObjectId(transactionID) },
                     { $set: 
                         { 
@@ -20,8 +21,8 @@ async function updateProductStatus(req) {
                     (error) => console.log(error)
                 )
             }
-            else if(status === 'Discard') {
-                const updatedOrder = await dbo.collection("Orders").updateOne(
+            else if(status === 'Cancelled') {
+                updatedOrder = await dbo.collection("Orders").updateOne(
                     { _id: new ObjectId(transactionID) },
                     { $set: 
                         { 

@@ -7,7 +7,7 @@ roles[0].style.color = `${darkblue}`
 roles[0].style.opacity = "1"
 roles[0].style.fontWeight = "900"
 
-var roleType = "Admin"
+var roleType = "Admin";
 
 roles.forEach((role) => {
     role.addEventListener('click', () => {
@@ -81,7 +81,8 @@ submit.addEventListener('click', (e) => {
 
 async function login(email, password, roleType) {
     try {
-        const response = await fetch('https://inventify-render.onrender.com/login', {
+        console.log(roleType)
+        const response = await fetch('https://inventify-render.onrender.com/login/', {
             method: "POST",
             body: JSON.stringify(
                 {

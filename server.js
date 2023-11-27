@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000
 
 const app = express()
 
-app.use(cors());
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
@@ -87,9 +87,6 @@ app.get('/signup-otp', (req, res) => {
 })
 
 // -------------------------- P R O T E C T E D - R O U T E S ----------------------------------
-
-// -------------------------- M A N A G E R ----------------------------------
-
 function decodeUser(req) {
     var token = req.cookies.token || req.header("authorization").replace("Bearer ", "")
     const decode = jwt.verify(token, process.env.JWT_SECRET_KEY)
@@ -103,6 +100,7 @@ function decodeUserDetails(req) {
     return decode
 }
 
+// -------------------------- M A N A G E R ----------------------------------
 app.get('/manager-dashboard/:username', authN, isManager, async(req, res) => {
     if(decodeUser(req) === true) {
         let decode = decodeUserDetails(req)
@@ -166,6 +164,7 @@ app.get('/manager-products/:username', async(req, res) => {
             lastName: userDetails[0].lastName,
             products: productDetails
         })
+
     }
     
 })
@@ -187,11 +186,26 @@ app.get('/manager-approval/:username', async(req, res) => {
     else return res.render('page_not_found')
 })
 
-// -------------------------- A D M I N  ----------------------------------
-app.get('/admin-dashboard', (req, res) => {
-    res.render('admin-dashboard')
+const approvalStatus = require('./server/controllers/manager/approvalStatus')
+app.post('/update-approval-status/:username', async(req, res) => {
+    if(decodeUser(req)) {
+        const response = await approvalStatus(req)
+        if(response.success) {
+            return res.status(200).json({
+                res: response
+            })
+        }
+        else return res.status(500).json({
+            response
+        })
+    }
+    else {
+        return res.status(401).json({
+            success: false,
+            message: 'Unauthorized error'
+        })
+    }
 })
-
 
 // -------------------------- S T A F F ----------------------------------
 app.get('/staff-dashboard/:username', authN, isStaff, async(req, res) => {
@@ -231,13 +245,13 @@ app.get('/staff-orders/:username', authN, isStaff, async(req, res) => {
         let decode = decodeUserDetails(req)
         let userDetails = await getUserDetails(decode.email)
         let orderDetails = await getOrderDetails()
-        // console.log(orderDetails.data[0].products)
+        console.log(orderDetails)
         if(orderDetails.success) {
                 return res.render('staff-orders', {
                     staff_username: req.params.username, 
                     firstName: userDetails[0].firstName, 
                     lastName: userDetails[0].lastName,
-                    orderDetails: orderDetails.data 
+                    orderDetails: orderDetails.data
                 }
             )
         }
@@ -249,7 +263,7 @@ app.get('/staff-orders/:username', authN, isStaff, async(req, res) => {
 
 const updateProductStatus = require('./server/controllers/staff/updateProductStatus')
 app.post('/update-product-status/:username', authN, isStaff, async(req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     if(decodeUser(req)) {
         const response = await updateProductStatus(req)
         if(response.success) {
@@ -268,6 +282,7 @@ app.post('/update-product-status/:username', authN, isStaff, async(req, res) => 
         })
     }
 })
+
 
 // -------------------------- R E T A I L E R  ----------------------------
 app.get('/retailer-dashboard/:username', authN, isRetailer, async(req, res) => {
@@ -293,7 +308,7 @@ app.get('/retailer-profile/:username', authN, isRetailer, async(req, res) => {
             firstName: userDetails[0].firstName,
             lastName: userDetails[0].lastName,
             email: userDetails[0].email,
-            contact: userDetails[0].contact,
+            contact: userDetails[0].phoneno,
             gender: userDetails[0].gender,
             doj: userDetails[0].dateofJoining
         }
@@ -312,6 +327,10 @@ app.get('/retailer-products/:username', authN, isRetailer, async(req, res) => {
             username: userDetails[0].username,
             products: productDetails
         })
+        // res.status(200).json({
+        //     username: userDetails[0].username,
+        //     products: productDetails
+        // })
     }
     else return res.render('page_not_found')
 })
@@ -377,7 +396,6 @@ app.get('/retailer-orders/:username', authN, isRetailer, async(req, res) => {
         let decode = decodeUserDetails(req)
         let userDetails = await getUserDetails(decode.email)
         let productsOrder = await orderProducts(userDetails[0].username)
-        console.log(productsOrder.productsOrderByRetailer[0].products[0].qtyStrip)
         return res.render('retailer-orders', {
             username: userDetails[0].username,
             firstName: userDetails[0].firstName,
@@ -390,6 +408,18 @@ app.get('/retailer-orders/:username', authN, isRetailer, async(req, res) => {
 
 
 // -------------------------------------------------------------------------------
+
+app.get('/clear-db', async(req, res) => {
+    try {
+        const client = dbConfigs.getClient
+        const dbo = client.db("Inventify")
+        dbo.collection("Orders").deleteMany({})
+        res.send("Orders Collection cleared!")
+    } catch (error) {
+        console.log(error)
+        res.send("Error")
+    }
+})
 
 // -------------------------- A P I ------------------------------------------
 
@@ -406,7 +436,7 @@ app.post('/signup-with-google', signUpWithGoogle);
 
 const genOTP = require("./server/controllers/visitors/generateOTP")
 app.post('/get-otp', (req, res) => {
-    genOTP(req, res)
+    return genOTP(req, res)
 })
 
 const updateProfile = require('./server/controllers/common/updateProfile')
@@ -427,3 +457,5 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
     console.log("Server activated on PORT", PORT)
 })
+
+module.exports = app
