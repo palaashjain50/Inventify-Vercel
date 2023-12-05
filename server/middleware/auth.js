@@ -7,10 +7,15 @@ async function authN(req, res, next) {
 
     // console.log(req.headers)
 
-    var token = req.cookies.token || req.header("authorization").replace("Bearer ", "")
-    
+    var token = req.cookies.token;
+    if (!token) {
+        var auth_header = req.header("authorization");
+        if (auth_header) {
+            auth_header = auth_header.replace("Bearer ", "");
+            token = auth_header;   
+        }
+    }
     console.log("Token => ",token)
-
     if(!token) return res.status(400).json({
         success: false,
         message: "Token missing!"
